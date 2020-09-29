@@ -1,0 +1,14 @@
+.TopBar {
+    background-color: dodgerblue;
+    padding: 30px;
+    font-family: sans-serif;
+    width: 100%;
+    margin-top: auto;
+    box-shadow: 0px 4px 14px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
