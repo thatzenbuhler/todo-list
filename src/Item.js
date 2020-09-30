@@ -6,7 +6,7 @@ class Item extends React.Component {
         return (
             <div className="Item">
                 <p>
-                    Here is some example text to represent a Todo item.
+                    TODO: {this.props.todo}
                 </p>
             </div>
         );
