@@ -17,6 +17,10 @@ class App extends React.Component {
   }
 
   handleClick = () => {
+    if (this.state.fieldText.length < 1) {
+      alert("Please enter valid text for your Todo item.");
+      return;
+    }
     this.setState({list: this.state.list.concat({item: this.state.fieldText})});
   }
 
