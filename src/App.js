@@ -21,21 +21,28 @@ class App extends React.Component {
       alert("Please enter valid text for your Todo item.");
       return;
     }
-    this.setState({list: this.state.list.concat({item: this.state.fieldText})});
+    this.setState({ list: this.state.list.concat({ item: this.state.fieldText }) });
   }
 
   handleChange = (value) => {
-    this.setState({fieldText: value});
+    this.setState({ fieldText: value });
   }
 
+  removeItem = (item) => {
+    this.setState({
+      list: this.state.list.filter(each => each.item !== item)
+    });
+  }
 
   render() {
-  const listItems = this.state.list.map(each => <Item key={each.item} todo={each.item}/>);
+    const listItems = this.state.list.map(
+      each => <Item key={each.item} todo={each.item} remove={this.removeItem} />
+    );
     return (
       <div className="App">
         <TopBar />
         <ul>{listItems}</ul>
-        <Controller handleChange={this.handleChange} click={this.handleClick}/>
+        <Controller handleChange={this.handleChange} click={this.handleClick} />
       </div>
     );
   }

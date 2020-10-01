@@ -7,7 +7,7 @@ class Item extends React.Component {
     }
 
     remove = () => {
-        console.log("remove item");
+        this.props.remove(this.props.todo);
     }
 
     render() {
