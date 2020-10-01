@@ -7,21 +7,21 @@ class Controller extends React.Component {
         this.state = {
             textField: ""
         };
-        this.handleChange = this.handleChange.bind(this);
     };
 
-    handleChange(e) {
-        this.setState({
-            textField: "test"
-        });
-        console.log("Test");
+    handleChange = (e) => {
+        this.props.handleChange(e.target.value);
+    }
+
+    handleClick = () => {
+        this.props.click(this.state.textField);
     }
 
     render() {
         return (
             <div className="Controller">
                 <input className="input" onChange={this.handleChange}></input>
-                <button className="button" onClick={this.props.click}>Add to List</button>
+                <button className="button" onClick={this.handleClick}>Add to List</button>
             </div>
         );
     }

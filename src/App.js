@@ -12,20 +12,25 @@ class App extends React.Component {
         { item: "Example todo 1" },
         { item: "Example todo 2" },
         { item: "Example todo 3" }
-      ]
+      ],
+      fieldText: ""
     }
   }
 
   handleClick = () => {
-    alert("Test");
+    alert(this.state.fieldText);
+  }
+
+  handleChange = (value) => {
+    this.setState({fieldText: value});
   }
 
   render() {
     return (
       <div className="App">
         <TopBar />
-        {this.state.list.map(each => <Item todo={each.item} />)}
-        <Controller click={this.handleClick}/>
+        {this.state.list.map(each => <Item key={each.item} todo={each.item} />)}
+        <Controller handleChange={this.handleChange} click={this.handleClick}/>
       </div>
     );
   }
