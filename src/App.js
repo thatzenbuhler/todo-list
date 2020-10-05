@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TopBar />
-        <ul>{listItems}</ul>
+        <ul style={{padding: "0"}}>{listItems}</ul>
         <Controller handleChange={this.handleChange} click={this.handleClick} />
       </div>
     );
