@@ -1,7 +1,7 @@
-import React from 'react';
-import TopBar from './components/TopBar';
-import Item from './components/Item';
-import Controller from './components/Controller';
+import React from "react";
+import TopBar from "./components/TopBar";
+import Item from "./components/Item";
+import Controller from "./components/Controller";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +10,10 @@ class App extends React.Component {
       list: [
         { item: "Example todo 1" },
         { item: "Example todo 2" },
-        { item: "Example todo 3" }
+        { item: "Example todo 3" },
       ],
-      fieldText: ""
-    }
+      fieldText: "",
+    };
   }
 
   handleClick = () => {
@@ -21,23 +21,25 @@ class App extends React.Component {
       alert("Please enter valid text for your Todo item.");
       return;
     }
-    this.setState({ list: this.state.list.concat({ item: this.state.fieldText }) });
-  }
+    this.setState({
+      list: this.state.list.concat({ item: this.state.fieldText }),
+    });
+  };
 
   handleChange = (value) => {
     this.setState({ fieldText: value });
-  }
+  };
 
   removeItem = (item) => {
     this.setState({
-      list: this.state.list.filter(each => each.item !== item)
+      list: this.state.list.filter((each) => each.item !== item),
     });
-  }
+  };
 
   render() {
-    const listItems = this.state.list.map(
-      each => <Item key={each.item} todo={each.item} remove={this.removeItem} />
-    );
+    const listItems = this.state.list.map((each) => (
+      <Item key={each.item} todo={each.item} remove={this.removeItem} />
+    ));
     return (
       <div className="App">
         <TopBar />
