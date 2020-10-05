@@ -2,16 +2,13 @@ import React from "react";
 import TopBar from "./components/TopBar";
 import Item from "./components/Item";
 import Controller from "./components/Controller";
+import store from "store";
 
 class App extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      list: [
-        { item: "Example todo 1" },
-        { item: "Example todo 2" },
-        { item: "Example todo 3" },
-      ],
+      list: store.get("todos") || [{ item: "Example todo 1" }],
       fieldText: "",
     };
   }
@@ -36,6 +33,10 @@ class App extends React.Component {
     });
   };
 
+  componentDidUpdate() {
+    store.set("todos", this.state.list);
+  }
+
   render() {
     const listItems = this.state.list.map((each) => (
       <Item key={each.item} todo={each.item} remove={this.removeItem} />
@@ -43,7 +44,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TopBar />
-        <ul style={{padding: "0"}}>{listItems}</ul>
+        <ul style={{ padding: "0" }}>{listItems}</ul>
         <Controller handleChange={this.handleChange} click={this.handleClick} />
       </div>
     );

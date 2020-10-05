@@ -1,3 +1,5 @@
+# React Todo List
+This simple project is a way for me to learn the basic functionality of ReactJS and to hone my skills in HTML/CSS as well.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
