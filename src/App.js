@@ -27,9 +27,9 @@ class App extends React.Component {
     this.setState({ fieldText: value });
   };
 
-  removeItem = (item) => {
+  removeItem = (todo) => {
     this.setState({
-      list: this.state.list.filter((each) => each.item !== item),
+      list: this.state.list.filter((each) => each.item !== todo),
     });
   };
 
@@ -38,8 +38,8 @@ class App extends React.Component {
   }
 
   render() {
-    const listItems = this.state.list.map((each) => (
-      <Item key={each.item} todo={each.item} remove={this.removeItem} />
+    const listItems = this.state.list.map((each, index) => (
+      <Item key={index} todo={each.item} remove={this.removeItem} />
     ));
     return (
       <div className="App">
