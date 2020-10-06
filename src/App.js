@@ -28,8 +28,10 @@ class App extends React.Component {
   };
 
   removeItem = (todo) => {
+    const listCopy = [...this.state.list];
+    listCopy.splice(listCopy.findIndex(i => i.item === todo), 1);
     this.setState({
-      list: this.state.list.filter((each) => each.item !== todo),
+      list: listCopy,
     });
   };
 
